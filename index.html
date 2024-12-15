@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Văn bản có thể chỉnh sửa</title>
+    <style>
+        @font-face {
+            font-family: 'Press Start 2P';
+            src: url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            color: #ffffff;
+            font-family: 'Press Start 2P', monospace;
+        }
+
+        #editable {
+            font-size: 2em;
+            padding: 20px;
+            outline: none;
+            background-color: transparent;
+            text-align: center;
+            position: relative;
+        }
+
+        #editable::after {
+            content: '_';
+            animation: blink 1s infinite;
+            position: absolute;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div id="editable" contenteditable="true">
+        happy birthday
+    </div>
+</body>
+</html>
