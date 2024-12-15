@@ -3,17 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Văn bản có thể chỉnh sửa</title>
+    <title>Văn bản có thể chỉnh sửa với nhiều font</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Open+Sans&family=Lato&family=Montserrat&family=Oswald&family=Raleway&family=Merriweather&family=Poppins&family=Playfair+Display&family=Ubuntu&family=Rubik&family=Source+Sans+Pro&family=Nunito&family=Titillium+Web&family=PT+Sans&family=Noto+Sans&family=Fira+Sans&family=Quicksand&family=Karla&family=Josefin+Sans&family=Work+Sans&family=Mulish&family=Cabin&family=Arimo&family=Libre+Franklin&family=Noto+Serif&family=Dosis&family=Bitter&family=Crimson+Text&family=Libre+Baskerville&family=Inconsolata&family=Archivo&family=Barlow&family=Merriweather+Sans&family=Exo+2&family=Asap&family=IBM+Plex+Sans&family=Manrope&family=Nanum+Gothic&family=Hind&family=Prompt&family=Comfortaa&family=Catamaran&family=Signika&family=Overpass&family=Kanit&family=Oxygen&family=Heebo&family=Yanone+Kaffeesatz&family=Alegreya&family=Cormorant+Garamond&family=Lobster&family=Pacifico&display=swap" rel="stylesheet">
     <style>
-        @font-face {
-            font-family: 'Press Start 2P';
-            src: url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-        }
-
         body, html {
             height: 100%;
             margin: 0;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             background-color: black;
@@ -28,6 +26,7 @@
             background-color: transparent;
             text-align: center;
             position: relative;
+            margin-bottom: 20px;
         }
 
         #editable::after {
@@ -40,11 +39,85 @@
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
         }
+
+        #font-select {
+            padding: 10px;
+            font-size: 1em;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
     <div id="editable" contenteditable="true">
         happy birthday
     </div>
+    <select id="font-select" onchange="changeFont()">
+        <option value="'Press Start 2P', monospace">Press Start 2P</option>
+        <option value="'Roboto', sans-serif">Roboto</option>
+        <option value="'Open Sans', sans-serif">Open Sans</option>
+        <option value="'Lato', sans-serif">Lato</option>
+        <option value="'Montserrat', sans-serif">Montserrat</option>
+        <option value="'Oswald', sans-serif">Oswald</option>
+        <option value="'Raleway', sans-serif">Raleway</option>
+        <option value="'Merriweather', serif">Merriweather</option>
+        <option value="'Poppins', sans-serif">Poppins</option>
+        <option value="'Playfair Display', serif">Playfair Display</option>
+        <option value="'Ubuntu', sans-serif">Ubuntu</option>
+        <option value="'Rubik', sans-serif">Rubik</option>
+        <option value="'Source Sans Pro', sans-serif">Source Sans Pro</option>
+        <option value="'Nunito', sans-serif">Nunito</option>
+        <option value="'Titillium Web', sans-serif">Titillium Web</option>
+        <option value="'PT Sans', sans-serif">PT Sans</option>
+        <option value="'Noto Sans', sans-serif">Noto Sans</option>
+        <option value="'Fira Sans', sans-serif">Fira Sans</option>
+        <option value="'Quicksand', sans-serif">Quicksand</option>
+        <option value="'Karla', sans-serif">Karla</option>
+        <option value="'Josefin Sans', sans-serif">Josefin Sans</option>
+        <option value="'Work Sans', sans-serif">Work Sans</option>
+        <option value="'Mulish', sans-serif">Mulish</option>
+        <option value="'Cabin', sans-serif">Cabin</option>
+        <option value="'Arimo', sans-serif">Arimo</option>
+        <option value="'Libre Franklin', sans-serif">Libre Franklin</option>
+        <option value="'Noto Serif', serif">Noto Serif</option>
+        <option value="'Dosis', sans-serif">Dosis</option>
+        <option value="'Bitter', serif">Bitter</option>
+        <option value="'Crimson Text', serif">Crimson Text</option>
+        <option value="'Libre Baskerville', serif">Libre Baskerville</option>
+        <option value="'Inconsolata', monospace">Inconsolata</option>
+        <option value="'Archivo', sans-serif">Archivo</option>
+        <option value="'Barlow', sans-serif">Barlow</option>
+        <option value="'Merriweather Sans', sans-serif">Merriweather Sans</option>
+        <option value="'Exo 2', sans-serif">Exo 2</option>
+        <option value="'Asap', sans-serif">Asap</option>
+        <option value="'IBM Plex Sans', sans-serif">IBM Plex Sans</option>
+        <option value="'Manrope', sans-serif">Manrope</option>
+        <option value="'Nanum Gothic', sans-serif">Nanum Gothic</option>
+        <option value="'Hind', sans-serif">Hind</option>
+        <option value="'Prompt', sans-serif">Prompt</option>
+        <option value="'Comfortaa', cursive">Comfortaa</option>
+        <option value="'Catamaran', sans-serif">Catamaran</option>
+        <option value="'Signika', sans-serif">Signika</option>
+        <option value="'Overpass', sans-serif">Overpass</option>
+        <option value="'Kanit', sans-serif">Kanit</option>
+        <option value="'Oxygen', sans-serif">Oxygen</option>
+        <option value="'Heebo', sans-serif">Heebo</option>
+        <option value="'Yanone Kaffeesatz', sans-serif">Yanone Kaffeesatz</option>
+        <option value="'Alegreya', serif">Alegreya</option>
+        <option value="'Cormorant Garamond', serif">Cormorant Garamond</option>
+        <option value="'Lobster', cursive">Lobster</option>
+        <option value="'Pacifico', cursive">Pacifico</option>
+    </select>
+
+    <script>
+        function changeFont() {
+            const select = document.getElementById('font-select');
+            const editable = document.getElementById('editable');
+            editable.style.fontFamily = select.value;
+        }
+    </script>
 </body>
 </html>
+
